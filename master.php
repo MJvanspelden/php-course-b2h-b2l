@@ -11,4 +11,5 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($categories as $category) {
     echo "<a href='detail.php?id=". $category['id'] ."'>" . $category['naam'] . "</a><br>";
+
 }
