@@ -6,7 +6,7 @@ global $db;
 
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
-if ($id !== null && $id !== false) {
+if ($id !== null && $id !== false) { //$id is niet leeg eEN niet false
     $query = $db->prepare("SELECT * FROM fietsen WHERE categorie_id = :id");
     $query->bindParam('id', $id);
     $query->execute();
@@ -43,7 +43,7 @@ if ($id !== null && $id !== false) {
     <td>
         <?=$bike['type']?>
     </td>
-    <td><a href="update.php?id=<?= $bike['id'] ?>"> update</a></td>
+    <td><a href="update.php?id=<?= $bike['id'] ?>"> update</a></td> <!--.php?id= <? //geeft nummer van id mee en dat toont ie op pagina--!>
     <td><a href="delete.php?id=<?=$bike['id'] ?>"> delete</a></td>
 </tr>
 <?php endforeach;?>
